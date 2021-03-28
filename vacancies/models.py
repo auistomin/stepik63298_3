@@ -10,7 +10,7 @@ class Company(models.Model):
 
 
 class Specialty(models.Model):
-    code = models.CharField(max_length=100, primary_key=True)
+    code = models.CharField(max_length=100, primary_key=True, unique=True)
     title = models.CharField(max_length=100)
     picture = models.URLField(default='https://place-hold.it/100x60')
 
@@ -27,5 +27,5 @@ class Vacancy(models.Model):
 
 
 class Settings(models.Model):
-    name = models.CharField(primary_key=True, max_length=100)
+    name = models.CharField(max_length=100, primary_key=True, unique=True)
     value = models.CharField(max_length=100)
