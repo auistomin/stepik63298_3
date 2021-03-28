@@ -40,7 +40,7 @@ class VacanciesView(ListView):
     template_name = 'vacancies.html'
     model = Vacancy
     context_object_name = 'vacancies'
-    queryset = Vacancy.objects.select_related('company').all()
+    queryset = Vacancy.objects.select_related('company').all().order_by('-published_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
