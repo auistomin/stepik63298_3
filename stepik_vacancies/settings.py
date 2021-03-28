@@ -135,5 +135,3 @@ STATIC_ROOT = 'static'
 STATICFILES_DIRS = [
     BASE_DIR / 'assets',
 ]
-
-SITE_TITLE = 'Stepik-вакансии'
