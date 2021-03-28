@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load filters %}
+{% block container %}
+  <main class="container mt-3">
+    <section>
+      <h1 class="h1 text-center mx-auto mt-4 py-5">Ой, страница не найдена</h1>
+      <div class="row">
+        <div class="col-12 col-md-8 col-lg-6 offset-lg-3 offset-md-2">
+          <p class="lead">Извините, но мы не нашли запрашиваемую страницу...</p>
+          <p class="mt-5 w-50 mx-auto"><a href="{% url 'home' %}">Перейти на главную</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
