@@ -11,7 +11,6 @@ class MainView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['companies'] = Company.objects.all()
         context['specialties'] = Specialty.objects.all()
-        context['vacancies'] = Vacancy.objects.all()
         return context
 
 
