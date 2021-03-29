@@ -9,8 +9,8 @@ class MainView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['companies'] = Company.objects.all()
-        context['specialties'] = Specialty.objects.all()
+        context['companies'] = Company.objects.annotate()
+        context['specialties'] = Specialty.objects.annotate()
         return context
 
 
@@ -38,7 +38,7 @@ class VacanciesView(ListView):
     template_name = 'vacancies.html'
     model = Vacancy
     context_object_name = 'vacancies'
-    queryset = Vacancy.objects.select_related('company').all().order_by('-published_at')
+    queryset = Vacancy.objects.select_related('company').annotate().order_by('-published_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -50,7 +50,7 @@ class VacancyView(DetailView):
     template_name = 'vacancy.html'
     model = Vacancy
     pk_url_kwarg = 'vacancy_id'
-    queryset = Vacancy.objects.select_related('company').all()
+    queryset = Vacancy.objects.select_related('company').annotate()
 
 
 def custom_handler404(request, exception):
