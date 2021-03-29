@@ -21,7 +21,6 @@ class CompanyView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['company'] = get_object_or_404(Company, id=company_id)
         context['vacancies'] = Vacancy.objects.filter(company__id=company_id)
-        context['previous_url'] = self.request.META.get('HTTP_REFERER')
         return context
 
 
@@ -52,11 +51,6 @@ class VacancyView(DetailView):
     model = Vacancy
     pk_url_kwarg = 'vacancy_id'
     queryset = Vacancy.objects.select_related('company').all()
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['previous_url'] = self.request.META.get('HTTP_REFERER')
-        return context
 
 
 def custom_handler404(request, exception):

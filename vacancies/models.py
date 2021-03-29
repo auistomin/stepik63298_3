@@ -10,7 +10,7 @@ class Company(models.Model):
 
 
 class Specialty(models.Model):
-    code = models.CharField(max_length=100, primary_key=True, unique=True)
+    code = models.CharField(max_length=100, unique=True)
     title = models.CharField(max_length=100)
     picture = models.URLField(default='https://place-hold.it/100x60')
 
@@ -23,7 +23,7 @@ class Vacancy(models.Model):
     description = models.TextField()
     salary_min = models.IntegerField()
     salary_max = models.IntegerField()
-    published_at = models.DateField()
+    published_at = models.DateField(auto_now_add=True)
 
 
 class Settings(models.Model):
