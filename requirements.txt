@@ -23,6 +23,7 @@ flake8-variables-names==0.0.4
 iniconfig==1.1.1
 mccabe==0.6.1
 mr-proper==0.0.6
+mypy-extensions==0.4.3
 packaging==20.9
 pep8-naming==0.11.1
 pluggy==0.13.1
@@ -36,3 +37,4 @@ six==1.15.0
 sqlparse==0.4.1
 stdlib-list==0.8.0
 toml==0.10.2
+typing-extensions==3.7.4.3
