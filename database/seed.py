@@ -28,7 +28,7 @@ def main():
     for specialty in data.specialties:
         new_specialty = Specialty(code=specialty['code'],
                                   title=specialty['title'],
-                                  picture='specty_' + specialty['code'] + '.png'
+                                  picture='specty_' + specialty['code'] + '.png',
                                   )
         new_specialty.save()
 
@@ -49,9 +49,9 @@ def main():
 
     # settings
     Settings.objects.all().delete()
-    new_setting = Settings(name='site_title', value='Джуманджи')
+    new_setting = Settings(name='site_title', setval='Джуманджи')
     new_setting.save()
-    new_setting = Settings(name='site_description', value='Вакансии для <br>Junior-разработчиков')
+    new_setting = Settings(name='site_description', setval='Вакансии для <br>Junior-разработчиков')
     new_setting.save()
 
 

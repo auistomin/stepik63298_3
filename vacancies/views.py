@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView
 
@@ -9,8 +10,8 @@ class MainView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['companies'] = Company.objects.annotate()
-        context['specialties'] = Specialty.objects.annotate()
+        context['companies'] = Company.objects.annotate(vacancies_count=Count('vacancies'))
+        context['specialties'] = Specialty.objects.annotate(vacancies_count=Count('vacancies'))
         return context
 
 
@@ -38,7 +39,7 @@ class VacanciesView(ListView):
     template_name = 'vacancies.html'
     model = Vacancy
     context_object_name = 'vacancies'
-    queryset = Vacancy.objects.select_related('company').annotate().order_by('-published_at')
+    queryset = Vacancy.objects.select_related('company').all().order_by('-published_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -50,7 +51,7 @@ class VacancyView(DetailView):
     template_name = 'vacancy.html'
     model = Vacancy
     pk_url_kwarg = 'vacancy_id'
-    queryset = Vacancy.objects.select_related('company').annotate()
+    queryset = Vacancy.objects.select_related('company').all()
 
 
 def custom_handler404(request, exception):

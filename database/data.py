@@ -40,7 +40,7 @@ companies = [
     {"id": "5", "title": "hirey ", "logo": "logo5.png", "employee_count": "21", "location": "Воронеж", "description": "Телекоммуникационные и платежные сервисы, которые помогают развиваться бизнесам во всем мире."},  # noqa: E501.
     {"id": "6", "title": "swiftattack", "logo": "logo6.png", "employee_count": "79", "location": "Москва", "description": "Разработка сложных веб-сервисов и мобильных приложений"},  # noqa: E501.
     {"id": "7", "title": "troller", "logo": "logo7.png", "employee_count": "230", "location": "Санкт-Петербург", "description": "Мобильное приложение, позволяющее примерить обувь и выбрать идеальную пару всего в 3 клика"},  # noqa: E501.
-    {"id": "8", "title": "primalassault", "logo": "logo8.png", "employee_count": "13", "location": "Москва", "description": "Реализуем проекты любой сложности в digital-сфере"}  # noqa: E501.
+    {"id": "8", "title": "primalassault", "logo": "logo8.png", "employee_count": "13", "location": "Москва", "description": "Реализуем проекты любой сложности в digital-сфере"},  # noqa: E501.
 
 ]
 
@@ -55,42 +55,6 @@ specialties = [
     {"code": "design", "title": "Дизайн"},
     {"code": "products", "title": "Продукты"},
     {"code": "management", "title": "Менеджмент"},
-    {"code": "testing", "title": "Тестирование"}
+    {"code": "testing", "title": "Тестирование"},
 
 ]
-
-""" Статусы в формате Enum """
-
-#
-#
-# class EducationChoices(Enum):
-#     missing = 'Отсутствует'
-#     secondary = 'Среднее'
-#     vocational = 'Средне-специальное'
-#     incomplete_higher = 'Неполное высшее'
-#     higher = 'Высшее'
-#
-#
-# class GradeChoices(Enum):
-#     intern = 'intern'
-#     junior = 'junior'
-#     middle = 'middle'
-#     senior = 'senior'
-#     lead = 'lead'
-#
-#
-# class SpecialtyChoices(Enum):
-#     frontend = 'Фронтенд'
-#     backend = 'Бэкенд'
-#     gamedev = 'Геймдев'
-#     devops = 'Девопс'
-#     design = 'Дизайн'
-#     products = 'Продукты'
-#     management = 'Менеджмент'
-#     testing = 'Тестирование'
-#
-#
-# class WorkStatusChoices(Enum):
-#     not_in_search = 'Не ищу работу'
-#     consideration = 'Рассматриваю предложения'
-#     in_search = 'Ищу работу'

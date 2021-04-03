@@ -4,16 +4,12 @@ register = Library()
 
 
 def count_str(count, base, suffixes):
-    if not count:
-        count_int = 0
-    else:
-        count_int = int(count)
-    if 2 <= count_int % 10 <= 4 and count_int % 100 // 10 != 1:
+    count_int = int(count) if count else 0
+    suffix = suffixes[2]
+    if (2 <= count_int % 10 <= 4) and (count_int % 100 // 10 != 1):
         suffix = suffixes[1]
-    elif count_int % 10 == 1 and count_int % 100 // 10 != 1:
+    elif (count_int % 10 == 1) and (count_int % 100 // 10 != 1):
         suffix = suffixes[0]
-    else:
-        suffix = suffixes[2]
     return base + suffix
 
 
@@ -28,5 +24,5 @@ def employee_count_str(employee_count):
 
 
 @register.filter
-def separated_list(str):
-    return ' • '.join([item.strip() for item in str.split(',')])
+def separated_list(strlist):
+    return ' • '.join([item.strip() for item in strlist.split(',')])
